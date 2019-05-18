@@ -17,7 +17,7 @@ classdef Database
             else
                 % init
                 obj.db_goods_count = 0;
-                obj.db_goods = containers.Map(0,struct);
+                obj.db_goods = containers.Map("",struct);
                 
                 remove(obj.db_goods, 0);
                 obj.db_orders_count = 0;
@@ -26,16 +26,16 @@ classdef Database
                 
                 % init solid goods in the data base
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("¶à·Ò", "ãåÔ¡Â¶", 13, 'img\ÃÀ×±Ï´»¤\ãåÔ¡Â¶\dove.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("¶à·Ò", "ãåÔ¡Â¶", 13);
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("Ç¿Éú", "ãåÔ¡Â¶", 20, 'img\ÃÀ×±Ï´»¤\ãåÔ¡Â¶\johnson.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("Ç¿Éú", "ãåÔ¡Â¶", 20);
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("º£·ÉË¿", "Ï´·¢Â¶", 18, 'img\ÃÀ×±Ï´»¤\Ï´·¢Â¶\hfs.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("º£·ÉË¿", "Ï´·¢Â¶", 18);
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("Æ®Èá", "Ï´·¢Â¶", 15, 'img\ÃÀ×±Ï´»¤\Ï´·¢Â¶\rejoice.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("Æ®Èá", "Ï´·¢Â¶", 15);
                 
             end
             
@@ -51,18 +51,18 @@ classdef Database
                     return;
                 end
             end
-            goods = Goods("","",0);
+            goods = Goods();
             return;
                 
         end
-        function addGoods(obj,brand, type, price, src)
+        function addGoods(obj,brand, type, price)
             obj.db_goods_count = obj.db_goods_count + 1;
-            obj.db_goods(obj.db_goods_count) = Goods(brand, type, price, src);
+            obj.db_goods(obj.db_goods_count) = Goods(brand, type, price);
         end
-        function removeGoods(obj,brand, type, price, src)
+        function removeGoods(obj,brand, type, price)
             % TODO
             obj.db_goods_count = obj.db_goods_count + 1;
-            obj.db_goods(obj.db_goods_count) = Goods(brand, type, price, src);
+            obj.db_goods(obj.db_goods_count) = Goods(brand, type, price);
         end
         function get_infoGoods(obj)
             % TODO

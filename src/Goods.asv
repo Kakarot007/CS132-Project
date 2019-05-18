@@ -7,11 +7,11 @@ classdef Goods
         remain_num = 0;
     end
     methods
-        function obj= Goods(brand, type, price, src)
+        function obj= Goods(brand, type, price)
             obj.type = type;
             obj.brand = brand;
             obj.price = price;
-            obj.img_src = src;
+%             obj.src = src;
         end
         function result = isEqual(obj, goods)
             if obj.type == goods.type && obj.brand==goods.brand
