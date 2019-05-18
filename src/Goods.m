@@ -51,7 +51,7 @@ classdef Goods
             return;
         end
         function obj = setNumber(obj, num)
-            obj.remain_num = remain_num;
+            obj.remain_num = num;
             return;
         end
         

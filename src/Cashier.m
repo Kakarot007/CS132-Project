@@ -1,14 +1,13 @@
 classdef Cashier
     properties
-        db
-        order  % which will be write back to database.order
+        db;
+        order = Order(0);  % which will be write back to database.order
         order_count;
     end
     methods
         function obj= Cashier()
             obj.db = Database();
-            obj.order_count = 0;
-            
+            obj.order_count = obj.db.db_orders_count;
         end
         function obj = create_order(obj)
             obj.order_count = obj.order_count + 1;

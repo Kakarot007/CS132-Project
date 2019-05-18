@@ -17,9 +17,12 @@ classdef Database
             else
                 % init
                 obj.db_goods_count = 0;
+%                 obj.db_goods = containers.Map("",struct);
                 obj.db_goods = containers.Map(0,struct);
-                
+%                 remove(obj.db_goods(""), 0);
                 remove(obj.db_goods, 0);
+                
+                
                 obj.db_orders_count = 0;
                 obj.db_orders = containers.Map(0,struct);
                 remove(obj.db_orders, 0);
@@ -51,7 +54,7 @@ classdef Database
                     return;
                 end
             end
-            goods = Goods("","",0);
+            goods = Goods("", "", 0, "");
             return;
                 
         end
