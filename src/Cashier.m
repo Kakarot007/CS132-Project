@@ -9,6 +9,7 @@ classdef Cashier
             obj.db = Database();
             obj.order_count = obj.db.db_orders_count;
         end
+        
         function obj = create_order(obj)
             obj.order_count = obj.order_count + 1;
             obj.order = Order(obj.order_count);
