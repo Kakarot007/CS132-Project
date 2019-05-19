@@ -16,6 +16,9 @@ classdef Goods
         function result = isEqual(obj, goods)
             if obj.type == goods.type && obj.brand==goods.brand
                 result = true;
+                return;
+            else
+                result = false;
             end
         end
         % opt on brand

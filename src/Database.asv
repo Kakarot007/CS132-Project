@@ -66,13 +66,9 @@ classdef Database
             obj.db_goods_count = obj.db_goods_count + 1;
             obj.db_goods(obj.db_goods_count) = Goods(brand, type, price, src);
         end
-        function result = getGoods(obj, count)
-            if count <= obj.db_goods_count
-                result = obj.db_goods(count);
-                return;
-            else
-                result = Goods("", "", 0, "");
-            end
+        function getGoods(obj)
+            % TODO
+            
         end
         function writeOrder(obj, order)
             obj.db_orders_count = obj.db_orders_count + 1;
