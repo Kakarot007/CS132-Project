@@ -29,31 +29,31 @@ classdef Database
                 % init solid goods in the data base
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("多芬", "沐浴露", 13, 'img\美妆洗护\沐浴露\dove.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("多芬", "沐浴露", '美妆洗护',13, 'img\美妆洗护\沐浴露\dove.jpg');
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("强生", "沐浴露", 20, 'img\美妆洗护\沐浴露\johnson.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("强生", "沐浴露",'美妆洗护', 20, 'img\美妆洗护\沐浴露\johnson.jpg');
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("舒肤佳", "沐浴露", 15, 'img\美妆洗护\沐浴露\sfj.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("舒肤佳", "沐浴露", '美妆洗护', 15, 'img\美妆洗护\沐浴露\sfj.jpg');
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("海飞丝", "洗发露", 18, 'img\美妆洗护\洗发露\hfs.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("海飞丝", "洗发露", '美妆洗护', 18, 'img\美妆洗护\洗发露\hfs.jpg');
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("飘柔", "洗发露", 15, 'img\美妆洗护\洗发露\rejoice.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("飘柔", "洗发露", '美妆洗护', 15, 'img\美妆洗护\洗发露\rejoice.jpg');
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("乐事", "薯片", 3, 'img\食品\薯片\ls.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("乐事", "薯片", '食品', 3, 'img\食品\薯片\ls.jpg');
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("可比克", "薯片", 3, 'img\食品\薯片\kbk.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("可比克", "薯片", '食品', 3, 'img\食品\薯片\kbk.jpg');
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("奥利奥", "饼干", 6, 'img\食品\饼干\ala.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("奥利奥", "饼干",'食品', 6, 'img\食品\饼干\ala.jpg');
                 
                 obj.db_goods_count = obj.db_goods_count + 1;
-                obj.db_goods(obj.db_goods_count) = Goods("好吃点", "饼干", 5, 'img\食品\饼干\hcd.jpg');
+                obj.db_goods(obj.db_goods_count) = Goods("好吃点", "饼干",'食品', 5, 'img\食品\饼干\hcd.jpg');
                 
                 save 'data/cashier_db.mat' obj
             end
@@ -74,14 +74,15 @@ classdef Database
             return;
                 
         end
-        function addGoods(obj,brand, type, price, src)
+        function addGoods(obj,brand, type, affiliate, price, src)
             obj.db_goods_count = obj.db_goods_count + 1;
-            obj.db_goods(obj.db_goods_count) = Goods(brand, type, price, src);
+            obj.db_goods(obj.db_goods_count) = Goods(brand, type, affiliate, price, src);
+            obj.writeData()
         end
-        function removeGoods(obj,brand, type, price, src)
+        function removeGoods(obj,brand, type, affiliate, price, src)
             % TODO
             obj.db_goods_count = obj.db_goods_count + 1;
-            obj.db_goods(obj.db_goods_count) = Goods(brand, type, price, src);
+            obj.db_goods(obj.db_goods_count) = Goods(brand, type, affiliate, price, src);
         end
         function result = getGoods(obj, count)
             if count <= obj.db_goods_count

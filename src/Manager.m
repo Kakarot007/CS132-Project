@@ -7,13 +7,13 @@ classdef Manager
         function obj= Manager()
             obj.db = Database();
         end
-        function obj = registerGoods(obj,brand, type, price, src)
-            obj.db.addGoods(brand, type, price, src);
+        function obj = registerGoods(obj,brand, type, affiliate, price, src)
+            obj.db.addGoods(brand, type, affiliate, price, src);
             % TODO: change Customer UI
             
             
         end
-        function registerItem(obj,brand, type, price)
+        function registerItem(obj,brand, type, affiliate, price)
             % TODO: todo in iter2
             
         end

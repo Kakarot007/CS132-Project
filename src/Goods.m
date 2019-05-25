@@ -2,14 +2,16 @@ classdef Goods
     properties (SetAccess=immutable)
         brand = "";
         type = "";
+        affiliate = ""
         price = 0;
         img_src = '';
         remain_num = 0;
     end
     methods
-        function obj= Goods(brand, type, price, src)
+        function obj= Goods(brand, type, affiliate, price, src)
             obj.type = type;
             obj.brand = brand;
+            obj.affiliate = affiliate;
             obj.price = price;
             obj.img_src = src;
         end
@@ -39,6 +41,7 @@ classdef Goods
             obj.type = type;
             return;
         end
+        
         % opt on price
         function result = getPrice(obj)
             result = obj.price;
