@@ -13,7 +13,7 @@ classdef Database
                 mkdir('data')
             end
             if exist('data/cashier_db.mat','file')
-                load 'data/cashier_db.mat' obj
+                load 'data/cashier_db.mat' obj;
             else
                 % init
                 obj.db_goods_count = 0;
@@ -60,12 +60,15 @@ classdef Database
             
             %save 'data/cashier_db.mat' obj
         end
-        function writeData(obj)
+        function obj = loadData(obj)
+            load 'data/cashier_db.mat' obj
+        end
+        function obj = writeData(obj)
             save 'data/cashier_db.mat' obj;
         end
         function goods = findGoods(obj,name)
             for i = 1:obj.db_goods_count
-                if obj.db_goods(i).brand == name
+                if strcmp(obj.db_goods(i).brand, name)
                     goods = obj.db_goods(i);
                     return;
                 end
@@ -74,12 +77,12 @@ classdef Database
             return;
                 
         end
-        function addGoods(obj,brand, type, affiliate, price, src)
+        function obj = addGoods(obj,brand, type, affiliate, price, src)
             obj.db_goods_count = obj.db_goods_count + 1;
             obj.db_goods(obj.db_goods_count) = Goods(brand, type, affiliate, price, src);
-            obj.writeData()
+            obj.writeData();
         end
-        function removeGoods(obj,brand, type, affiliate, price, src)
+        function obj = removeGoods(obj,brand, type, affiliate, price, src)
             % TODO
             obj.db_goods_count = obj.db_goods_count + 1;
             obj.db_goods(obj.db_goods_count) = Goods(brand, type, affiliate, price, src);
@@ -96,7 +99,7 @@ classdef Database
             result = obj.db_goods_count;
             return;
         end
-        function writeOrder(obj, order)
+        function obj = writeOrder(obj, order)
             obj.db_orders_count = obj.db_orders_count + 1;
             obj.db_orders(obj.db_orders_count) = order;
             return;
