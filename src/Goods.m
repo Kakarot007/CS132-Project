@@ -1,5 +1,5 @@
 classdef Goods
-    properties (SetAccess=immutable)
+    properties
         brand = "";
         type = "";
         affiliate = ""
@@ -8,15 +8,16 @@ classdef Goods
         remain_num = 0;
     end
     methods
-        function obj= Goods(brand, type, affiliate, price, src)
+        function obj= Goods(brand, type, affiliate, price, remain_num, src)
             obj.type = type;
             obj.brand = brand;
             obj.affiliate = affiliate;
             obj.price = price;
             obj.img_src = src;
+            obj.remain_num = remain_num;
         end
         function result = isEqual(obj, goods)
-            if obj.type == goods.type && obj.brand==goods.brand
+            if strcmp(obj.type, goods.type) && strcmp(obj.brand, goods.brand)
                 result = true;
                 return;
             else
