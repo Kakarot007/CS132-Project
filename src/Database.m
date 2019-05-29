@@ -12,8 +12,8 @@ classdef Database
             if ~exist('data','dir')
                 mkdir('data')
             end
-            if exist('data/cashier_db.mat','file')
-                load 'data/cashier_db.mat' obj;
+            if exist('data\cashier_db.mat','file')
+                load 'data\cashier_db.mat' obj;
             else
                 % init
                 obj.db_goods_count = 0;
@@ -55,16 +55,16 @@ classdef Database
                 obj.db_goods_count = obj.db_goods_count + 1;
                 obj.db_goods(obj.db_goods_count) = Goods("好吃点", "饼干",'食品', 5, 10, 'img\食品\饼干\hcd.jpg');
                 
-                save 'data/cashier_db.mat' obj
+                save 'data\cashier_db.mat' obj
             end
             
-            %save 'data/cashier_db.mat' obj
+            save 'data\cashier_db.mat' obj
         end
         function obj = loadData(obj)
-            load 'data/cashier_db.mat' obj;
+            load '..\data\cashier_db.mat' obj;
         end
         function writeData(obj)
-            save 'data/cashier_db.mat' obj;
+            save 'data\cashier_db.mat' obj;
         end
         function goods = findGoods(obj,name)
             for i = 1:obj.db_goods_count
@@ -76,13 +76,13 @@ classdef Database
             goods = Goods("", "", 0, "");
             return;    
         end
-        function obj = setNumber(obj, goods, num)
+        function setNumber(obj, goods, num)
             for i = 1:obj.db_goods_count
                 if obj.db_goods(i).isEqual(goods)
                     x = 1111111
-                    dbg = obj.db_goods(i);
-                    dbg.remain_num = num;
-                    obj.writeData();
+                    setNumber(obj.db_goods(i), num);
+                    obj.db_goods(i).getNumber()
+                    
                     return;
                 end
             end

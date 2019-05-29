@@ -1,4 +1,4 @@
-classdef Goods
+classdef Goods < handle
     properties
         brand = "";
         type = "";
@@ -29,7 +29,7 @@ classdef Goods
             result = obj.brand;
             return;
         end
-        function obj = setBrand(obj, brand)
+        function setBrand(obj, brand)
             obj.brand = brand;
             return;
         end
@@ -38,7 +38,7 @@ classdef Goods
             result = obj.type;
             return;
         end
-        function obj = setType(obj, type)
+        function setType(obj, type)
             obj.type = type;
             return;
         end
@@ -48,7 +48,7 @@ classdef Goods
             result = obj.price;
             return;
         end
-        function obj = setPrice(obj, price)
+        function setPrice(obj, price)
             obj.price = price;
             return;
         end
@@ -57,7 +57,7 @@ classdef Goods
             result = obj.remain_num;
             return;
         end
-        function obj = setNumber(obj, num)
+        function setNumber(obj, num)
             obj.remain_num = num;
             return;
         end
