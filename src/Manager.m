@@ -7,8 +7,8 @@ classdef Manager
         function obj= Manager()
             obj.db = Database();
         end
-        function obj = registerGoods(obj,brand, type, affiliate, price, src)
-            obj.db.addGoods(brand, type, affiliate, price, src);
+        function obj = registerGoods(obj,brand, type, affiliate, price, remain_num, src)
+            obj.db.addGoods(brand, type, affiliate, price, remain_num, src);
             % TODO: change Customer UI
             
             

@@ -1,4 +1,4 @@
-classdef Cashier
+classdef Cashier < handle
     properties
         db;
         order = Order(0);  % which will be write back to database.order
