@@ -79,9 +79,7 @@ classdef Database
         function setNumber(obj, goods, num)
             for i = 1:obj.db_goods_count
                 if obj.db_goods(i).isEqual(goods)
-                    x = 1111111
                     setNumber(obj.db_goods(i), num);
-                    obj.db_goods(i).getNumber()
                     
                     return;
                 end
